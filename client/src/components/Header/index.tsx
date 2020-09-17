@@ -16,9 +16,9 @@ const Header: React.FC<Props> = () => {
   return (
     <>
       {isSmallScreen ? (
-        <MobileHeader currentUser={true} />
+        <MobileHeader currentUser={false} />
       ) : (
-        <DesktopHeader currentUser={true} />
+        <DesktopHeader currentUser={false} />
       )}
     </>
   )

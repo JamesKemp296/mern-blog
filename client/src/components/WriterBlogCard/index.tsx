@@ -1,6 +1,7 @@
 import React from "react"
+import axios from "axios"
 import { Link } from "react-router-dom"
-import { BLUE, LIGHT_BLUE, ORANGE, Route } from "../../utils"
+import { LIGHT_BLUE, ORANGE, Route } from "../../utils"
 
 // Material UI
 import { makeStyles, Theme } from "@material-ui/core/styles"
@@ -8,7 +9,8 @@ import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
-import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode"
+import Button from "@material-ui/core/Button"
+import CardActions from "@material-ui/core/CardActions"
 
 interface Props {
   title: string
@@ -34,7 +36,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   actionArea: {
-    height: "100%",
     padding: theme.spacing(3),
     "&:hover": {},
   },
@@ -44,7 +45,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-evenly",
-    padding: 0,
   },
   title: {
     fontSize: 24,
@@ -58,6 +58,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   icon: {
     fontSize: 70,
     color: LIGHT_BLUE,
+  },
+  actionButtons: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexGrow: 1,
   },
 }))
 
@@ -88,16 +94,22 @@ const BlogCard: React.FC<Props> = ({
         }}
       >
         <CardContent className={classes.cardContent}>
-          <ChromeReaderModeIcon className={classes.icon} />
           <Typography variant="h2" className={classes.title}>
             {title}
           </Typography>
           <Typography variant="h4" className={classes.body}>
             {body.length >= 50 ? body.substring(0, 50) + "..." : body}
           </Typography>
-          <Typography variant="body1">Author: {userHandle}</Typography>
         </CardContent>
       </CardActionArea>
+      <CardActions className={classes.actionButtons}>
+        <Button variant="contained" size="small" color="primary">
+          EDIT
+        </Button>
+        <Button variant="contained" size="small" color="secondary">
+          DELETE
+        </Button>
+      </CardActions>
     </Card>
   )
 }

@@ -5,11 +5,11 @@ import { Blog } from "../../utils"
 // Material UI
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import Box from "@material-ui/core/Box"
-import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
+import Typography from "@material-ui/core/Typography"
 
 // Components
-import BlogCard from "../../components/BlogCard"
+import WriterBlogCard from "../../components/WriterBlogCard"
 
 interface Props {}
 
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const Home: React.FC<Props> = () => {
+const Dashboard: React.FC<Props> = () => {
   const [blogData, setBlogData] = useState<Blog[] | null>(null)
   const classes = useStyles()
 
@@ -64,7 +64,7 @@ const Home: React.FC<Props> = () => {
     return (
       <>
         {blogData.map((blog: Blog) => (
-          <BlogCard
+          <WriterBlogCard
             key={blog.blogId}
             title={blog.title}
             body={blog.body}
@@ -82,7 +82,7 @@ const Home: React.FC<Props> = () => {
     <Box className={classes.root}>
       <Container maxWidth="md">
         <Typography variant="h2" className={classes.pageTitle}>
-          <b>All Blogs</b>
+          <b>Your Blogs</b>
         </Typography>
         <Box className={classes.cardContainer}>{renderBlogs()}</Box>
       </Container>
@@ -90,4 +90,4 @@ const Home: React.FC<Props> = () => {
   )
 }
 
-export default Home
+export default Dashboard

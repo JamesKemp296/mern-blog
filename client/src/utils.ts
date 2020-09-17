@@ -19,6 +19,7 @@ export enum Route {
   Login = "/login",
   SignUp = "/signup",
   Dashboard = "/dashboard",
+  Blog = "/blog/",
 }
 
 export enum Icon {
@@ -37,70 +38,14 @@ export enum GameLink {
   None = "",
 }
 
-// Information
+// interfaces
+export interface Blog {
+  blogId: string
+  title: string
+  body: string
+  userHandle: string
+  createdAt: any
+  commentCount: number
+}
 
-export const cardSelectionArray = [
-  {
-    title: "Reaction Time",
-    subTitle: "Test your visual reflexes.",
-    icon: Icon.Speed,
-    isAvailable: true,
-    link: GameLink.Reaction,
-  },
-  {
-    title: "Aim Trainer",
-    subTitle: "How quickly can you click all the targets?",
-    icon: Icon.Target,
-    isAvailable: false,
-    link: GameLink.None,
-  },
-  {
-    title: "Chimp Test",
-    subTitle: "Are you smarter than a chimpanzee?",
-    icon: Icon.Squares,
-    isAvailable: false,
-    link: GameLink.None,
-  },
-  {
-    title: "Visual Memory",
-    subTitle: "Remember an increasingly large board of squares.",
-    icon: Icon.Squares,
-    isAvailable: false,
-    link: GameLink.None,
-  },
-  {
-    title: "Hearing",
-    subTitle: "A test for high frequency hearing loss, the most common form.",
-    icon: Icon.Hearing,
-    isAvailable: false,
-    link: GameLink.None,
-  },
-  {
-    title: "Typing",
-    subTitle: "How many words can you type per minute?",
-    icon: Icon.Keyboard,
-    isAvailable: false,
-    link: GameLink.None,
-  },
-  {
-    title: "Number Memory",
-    subTitle: "Test your visual reflexes",
-    icon: Icon.Numbers,
-    isAvailable: true,
-    link: GameLink.Numbers,
-  },
-  {
-    title: "Visual Memory",
-    subTitle: "Test your visual reflexes",
-    icon: Icon.Book,
-    isAvailable: false,
-    link: GameLink.None,
-  },
-  {
-    title: "Word Memory",
-    subTitle: "How many words can you remember?",
-    icon: Icon.Keyboard,
-    isAvailable: false,
-    link: GameLink.None,
-  },
-]
+// Information

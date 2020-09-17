@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { OFF_WHTIE, BLUE, ORANGE, GameLink } from "./utils"
+import { OFF_WHTIE, BLUE, ORANGE } from "./utils"
 
 // Material UI
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
@@ -8,6 +8,9 @@ import { CssBaseline } from "@material-ui/core"
 
 // Views
 import Home from "./views/Home"
+import BlogPost from "./views/BlogPost"
+import Dashboard from "./views/Dashboard"
+import Login from "./views/Login"
 
 // Componetns
 import View from "./components/View"
@@ -38,6 +41,9 @@ const App: React.FC<Props> = () => {
         <View>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/blog/:id" component={BlogPost} />
           </Switch>
         </View>
       </Router>
