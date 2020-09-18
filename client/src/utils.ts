@@ -40,12 +40,13 @@ export enum GameLink {
 
 // interfaces
 export interface Blog {
-  blogId: string
+  id: string
   title: string
   body: string
-  userHandle: string
+  description: string
   createdAt: any
-  commentCount: number
+  tags: string[]
+  link: string
 }
 
 // Information

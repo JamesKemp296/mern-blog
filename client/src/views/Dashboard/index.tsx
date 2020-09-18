@@ -43,9 +43,7 @@ const Dashboard: React.FC<Props> = () => {
 
   const fetchBlogs = async () => {
     try {
-      const { data } = await axios.get(
-        `http://localhost:5000/mern-stack-blog-wyn/europe-west1/api/blogs`,
-      )
+      const { data } = await axios.get(`http://localhost:5000/blogs`)
       console.log(data)
       setBlogData(data)
     } catch (e) {
@@ -65,13 +63,13 @@ const Dashboard: React.FC<Props> = () => {
       <>
         {blogData.map((blog: Blog) => (
           <WriterBlogCard
-            key={blog.blogId}
+            key={blog.id}
             title={blog.title}
             body={blog.body}
-            userHandle={blog.userHandle}
+            description={blog.description}
             createdAt={blog.createdAt}
-            commentCount={blog.commentCount}
-            link={blog.blogId}
+            tags={blog.tags}
+            link={blog.id}
           />
         ))}
       </>

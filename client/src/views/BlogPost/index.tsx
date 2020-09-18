@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const BlogPost: React.FC<Props> = () => {
   const classes = useStyles()
   const history = useHistory()
-  const { title, body, userHandle }: any = history.location.state
+  const { title, body }: any = history.location.state
   console.log(history)
 
   const renderBlogPost = (): React.ReactElement => {
@@ -65,7 +65,7 @@ const BlogPost: React.FC<Props> = () => {
         <Typography variant="h4" className={classes.body}>
           {body.length >= 50 ? body.substring(0, 50) + "..." : body}
         </Typography>
-        <Typography variant="body1">Author: {userHandle}</Typography>
+        {/* <Typography variant="body1">Author: {userHandle}</Typography> */}
       </CardContent>
     )
   }

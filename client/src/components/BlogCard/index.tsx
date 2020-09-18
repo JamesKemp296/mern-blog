@@ -13,10 +13,10 @@ import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode"
 interface Props {
   title: string
   body: string
-  userHandle: string
   createdAt: any
-  commentCount: number
-  link: any
+  description: string
+  tags: string[]
+  link: string
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -65,8 +65,8 @@ const BlogCard: React.FC<Props> = ({
   title,
   body,
   createdAt,
-  commentCount,
-  userHandle,
+  description,
+  tags,
   link,
 }) => {
   const classes = useStyles()
@@ -82,8 +82,8 @@ const BlogCard: React.FC<Props> = ({
             title,
             body,
             createdAt,
-            commentCount,
-            userHandle,
+            description,
+            tags,
           },
         }}
       >
@@ -95,7 +95,7 @@ const BlogCard: React.FC<Props> = ({
           <Typography variant="h4" className={classes.body}>
             {body.length >= 50 ? body.substring(0, 50) + "..." : body}
           </Typography>
-          <Typography variant="body1">Author: {userHandle}</Typography>
+          {/* <Typography variant="body1">Author: {userHandle}</Typography> */}
         </CardContent>
       </CardActionArea>
     </Card>

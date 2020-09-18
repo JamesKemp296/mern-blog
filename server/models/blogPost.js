@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const { stringify } = require("querystring")
 
-const articleSchema = new mongoose.Schema({
+const blogPostSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -9,7 +9,7 @@ const articleSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  markdown: {
+  body: {
     type: String,
     required: true,
   },
@@ -17,6 +17,9 @@ const articleSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  tags: {
+    type: [String],
+  },
 })
 
-module.exports = mongoose.model("Article", articleSchema)
+module.exports = mongoose.model("BlogPost", blogPostSchema)

@@ -15,10 +15,10 @@ import CardActions from "@material-ui/core/CardActions"
 interface Props {
   title: string
   body: string
-  userHandle: string
   createdAt: any
-  commentCount: number
-  link: any
+  description: string
+  tags: string[]
+  link: string
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -71,8 +71,8 @@ const BlogCard: React.FC<Props> = ({
   title,
   body,
   createdAt,
-  commentCount,
-  userHandle,
+  description,
+  tags,
   link,
 }) => {
   const classes = useStyles()
@@ -88,8 +88,8 @@ const BlogCard: React.FC<Props> = ({
             title,
             body,
             createdAt,
-            commentCount,
-            userHandle,
+            description,
+            tags,
           },
         }}
       >
