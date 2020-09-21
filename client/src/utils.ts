@@ -40,7 +40,7 @@ export enum GameLink {
 
 // interfaces
 export interface Blog {
-  id: string
+  _id: string
   title: string
   body: string
   description: string

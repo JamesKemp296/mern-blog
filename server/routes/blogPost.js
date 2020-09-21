@@ -30,7 +30,23 @@ router.get("/", async (req, res) => {
 // get one Blog Post
 router.get("/:id", async (req, res) => {
   const post = await BlogPost.findById(req.params.id)
-  res.json(post)
+  try {
+    res.json(post)
+  } catch (e) {
+    console.error(e)
+  }
+})
+
+// delete Blog Post
+router.delete("/:id", async (req, res) => {
+  console.log({ id: req.params.id })
+  const post = await BlogPost.findById(req.params.id)
+  try {
+    await BlogPost.deleteOne(post)
+    res.json({ message: "Post successfully deleted" })
+  } catch (e) {
+    console.error(e)
+  }
 })
 
 module.exports = router

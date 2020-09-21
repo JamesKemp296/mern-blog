@@ -63,13 +63,15 @@ const Dashboard: React.FC<Props> = () => {
       <>
         {blogData.map((blog: Blog) => (
           <WriterBlogCard
-            key={blog.id}
+            key={blog._id}
+            id={blog._id}
             title={blog.title}
             body={blog.body}
             description={blog.description}
             createdAt={blog.createdAt}
             tags={blog.tags}
-            link={blog.id}
+            link={blog._id}
+            fetchBlogs={fetchBlogs}
           />
         ))}
       </>

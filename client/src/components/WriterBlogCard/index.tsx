@@ -13,12 +13,14 @@ import Button from "@material-ui/core/Button"
 import CardActions from "@material-ui/core/CardActions"
 
 interface Props {
+  id: any
   title: string
   body: string
   createdAt: any
   description: string
   tags: string[]
   link: string
+  fetchBlogs: any
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -67,15 +69,28 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const BlogCard: React.FC<Props> = ({
+const WriterBlogCard: React.FC<Props> = ({
   title,
   body,
   createdAt,
   description,
   tags,
   link,
+  fetchBlogs,
+  id,
 }) => {
   const classes = useStyles()
+
+  const handleDeleteBlogs = async (): Promise<any> => {
+    try {
+      console.log({ id })
+      const { data } = await axios.delete(`http://localhost:5000/blogs/${id}`)
+      console.log(data)
+      fetchBlogs()
+    } catch (e) {
+      console.error(e)
+    }
+  }
 
   return (
     <Card className={classes.root} variant="elevation" elevation={2}>
@@ -106,7 +121,12 @@ const BlogCard: React.FC<Props> = ({
         <Button variant="contained" size="small" color="primary">
           EDIT
         </Button>
-        <Button variant="contained" size="small" color="secondary">
+        <Button
+          variant="contained"
+          size="small"
+          color="secondary"
+          onClick={handleDeleteBlogs}
+        >
           DELETE
         </Button>
       </CardActions>
@@ -114,4 +134,4 @@ const BlogCard: React.FC<Props> = ({
   )
 }
 
-export default BlogCard
+export default WriterBlogCard

@@ -63,13 +63,13 @@ const Home: React.FC<Props> = () => {
       <>
         {blogData.map((blog: Blog) => (
           <BlogCard
-            key={blog.id}
+            key={blog._id}
             title={blog.title}
             body={blog.body}
             description={blog.description}
             createdAt={blog.createdAt}
             tags={blog.tags}
-            link={blog.id}
+            link={blog._id}
           />
         ))}
       </>
